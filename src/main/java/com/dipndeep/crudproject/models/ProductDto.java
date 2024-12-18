@@ -1,5 +1,7 @@
 package com.dipndeep.crudproject.models;
 
+import java.time.LocalDateTime;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.constraints.Min;
@@ -7,13 +9,16 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class ProductDto {
-   @NotEmpty (message = "Nama Tidak Boleh Kosong")
+
+   private Long id; // Tambahkan atribut id
+
+   @NotEmpty(message = "Nama Tidak Boleh Kosong")
    private String name;
-   
-   @NotEmpty (message = "Brand Tidak Boleh Kosong")
+
+   @NotEmpty(message = "Brand Tidak Boleh Kosong")
    private String brand;
 
-   @NotEmpty (message = "Kategori Tidak Boleh Kosong")
+   @NotEmpty(message = "Kategori Tidak Boleh Kosong")
    private String category;
 
    @Min(0)
@@ -25,6 +30,20 @@ public class ProductDto {
 
    private MultipartFile imageFile;
 
+   private String imageFileName;
+
+   private LocalDateTime createdAt;
+
+   // Getter dan Setter untuk id
+   public Long getId() {
+      return id;
+   }
+
+   public void setId(Long id) {
+      this.id = id;
+   }
+
+   // Getter dan Setter yang lain (sudah ada)
    public String getName() {
       return name;
    }
@@ -71,5 +90,22 @@ public class ProductDto {
 
    public void setImageFile(MultipartFile imageFile) {
       this.imageFile = imageFile;
+   }
+
+   // Getter dan Setter untuk imageFileName
+   public String getImageFileName() {
+      return imageFileName;
+   }
+
+   public void setImageFileName(String imageFileName) {
+      this.imageFileName = imageFileName;
+   }
+
+   public LocalDateTime getCreatedAt() {
+      return createdAt;
+   }
+
+   public void setCreatedAt(LocalDateTime createdAt) {
+      this.createdAt = createdAt;
    }
 }
