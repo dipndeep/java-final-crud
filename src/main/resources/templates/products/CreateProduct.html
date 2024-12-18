@@ -77,12 +77,12 @@
                   <div class="mb-3">
                      <label class="form-label">Kategori</label>
                      <select class="form-select" th:field="*{category}">
+                        <option value="Other">Other</option>
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
                         <option value="Industrial">Industrial</option>
                         <option value="Land">Land</option>
                         <option value="Warehouse">Warehouse</option>
-                        <option value="Other">Other</option>
                      </select>
                      <p th:if="${#fields.hasErrors('category')}" class="text-danger" th:errors="*{category}"></p>
                   </div>
