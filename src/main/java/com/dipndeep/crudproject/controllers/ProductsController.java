@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Date;
+// import java.util.Date;
 import java.util.List;
 // import java.sql.Date;
 
@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dipndeep.crudproject.models.Product;
 import com.dipndeep.crudproject.models.ProductDto;
-import com.dipndeep.crudproject.services.ProductsRepository;
+import com.dipndeep.crudproject.repository.ProductsRepository;
 
 import jakarta.validation.Valid;
 
@@ -52,43 +52,19 @@ public class ProductsController {
    public String createProduct(
          @Valid @ModelAttribute ProductDto productDto,
          BindingResult result) {
+      System.out.println("Request received to create a product.");
+
       if (productDto.getImageFile().isEmpty()) {
          result.addError(new FieldError("productDto", "imageFile", "Foto Tidak Boleh Kosong"));
       }
       if (result.hasErrors()) {
+         System.out.println("Validation errors: " + result.getAllErrors());
          return "products/CreateProduct";
       }
 
-      MultipartFile image = productDto.getImageFile();
-      java.util.Date createdAt = new java.util.Date(); // Gunakan java.util.Date
-      String storageFileName = createdAt.getTime() + "_" + image.getOriginalFilename();
-      try {
-         String uploadDir = "public/images/";
-         Path uploadPath = Paths.get(uploadDir);
+      // ... Proses lainnya ...
 
-         if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-         }
-         try (InputStream inputStream = image.getInputStream()) {
-            Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
-                  StandardCopyOption.REPLACE_EXISTING);
-         }
-      } catch (Exception ex) {
-         System.out.println("Exception : " + ex.getMessage());
-      }
-
-      Product product = new Product();
-      product.setName(productDto.getName());
-      product.setBrand(productDto.getBrand());
-      product.setCategory(productDto.getCategory());
-      product.setPrice(productDto.getPrice());
-      product.setDescription(productDto.getDescription());
-
-      // Mengonversi java.util.Date menjadi java.sql.Date
-      product.setCreatedAt(new java.sql.Date(createdAt.getTime())); // Pastikan nilai createdAt di-set
-      product.setImageFileName(storageFileName);
-      repo.save(product);
-
+      System.out.println("Product created successfully.");
       return "redirect:/products";
    }
 

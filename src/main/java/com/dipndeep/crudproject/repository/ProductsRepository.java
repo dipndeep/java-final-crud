@@ -1,4 +1,4 @@
-package com.dipndeep.crudproject.services;
+package com.dipndeep.crudproject.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

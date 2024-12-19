@@ -9,40 +9,87 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    <style>
       body {
-         background-color: #f4f6f9;
+         background: linear-gradient(to right, #6a11cb, #2575fc);
+         color: #f4f6f9;
          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         padding-top: 20px;
       }
 
       .hero-section {
-         background-color: #007bff;
+         background: rgba(255, 255, 255, 0.1);
          color: white;
          padding: 60px 20px;
          border-radius: 10px;
          text-align: center;
          margin-bottom: 30px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
       .hero-section h1 {
-         font-size: 2.5rem;
+         font-size: 2.8rem;
          font-weight: bold;
+         margin-bottom: 20px;
       }
 
       .btn-custom {
-         background-color: #007bff;
-         color: white;
+         background-color: white;
+         color: #007bff;
          font-weight: bold;
          padding: 12px 25px;
          border-radius: 5px;
-         transition: background-color 0.3s ease;
+         transition: transform 0.3s ease, background-color 0.3s ease;
       }
 
       .btn-custom:hover {
          background-color: #0056b3;
+         color: white;
+         transform: scale(1.05);
          text-decoration: none;
       }
 
-      .container {
-         margin-top: 40px;
+      .info-section {
+         background: rgba(255, 255, 255, 0.8);
+         color: #333;
+         padding: 20px;
+         border-radius: 10px;
+         margin-top: 30px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .info-section h3 {
+         font-weight: bold;
+         color: #007bff;
+         margin-bottom: 15px;
+      }
+
+      .info-section p {
+         margin-bottom: 10px;
+         color: #555;
+      }
+
+      .team-list {
+         list-style: none;
+         padding: 0;
+      }
+
+      .team-list li {
+         margin-bottom: 10px;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      .team-list li::before {
+         content: "\1F464";
+         color: #007bff;
+         font-size: 1.5rem;
+      }
+
+      .footer {
+         margin-top: 30px;
+         text-align: center;
+         color: #ddd;
+         font-size: 0.9rem;
       }
    </style>
 </head>
@@ -52,9 +99,27 @@
       <div class="hero-section">
          <h1>Selamat Datang di Website Kami!</h1>
          <p>Temukan berbagai produk terbaik untuk Anda.</p>
+         <div class="text-center mt-5">
+            <a href="/products" class="btn btn-custom">Lihat Produk</a>
+         </div>
       </div>
-      <div class="text-center">
-         <a href="/products" class="btn btn-custom">Lihat Produk</a>
+
+      <div class="info-section">
+         <h3>Tentang Website Kami</h3>
+         <p>Website ini dirancang untuk membantu pengguna menemukan produk terbaik sesuai kebutuhan. Kami berkomitmen
+            untuk menyediakan pengalaman pengguna yang menyenangkan dan intuitif.</p>
+         <p>Silakan jelajahi halaman produk kami untuk mengetahui lebih banyak tentang apa yang kami tawarkan!</p>
+
+         <h3>Tim Pembuat Website</h3>
+         <ul class="team-list">
+            <li>Ganendra Pradipa Tegar Pratama - Fullstack Developer - 202257201006</li>
+            <li>Muhammad Havid Riski Alzaki - Frontend Developer - 202257201039</li>
+            <li>Rafif Ibnu Wardana - UI/UX Designer - 202257201005</li>
+         </ul>
+      </div>
+
+      <div class="footer">
+         &copy; 2024 Kelompok Java. All rights reserved.
       </div>
    </div>
 
